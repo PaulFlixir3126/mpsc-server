@@ -11,7 +11,7 @@ addressInfoController.createAddressInfo = async function (req, res, next) {
     var data = req.body;
       if (data) {
         var sql =
-          "INSERT INTO user_address_info (ref_user_id,address_no,premises_building,locality,landmark,state,pincode,cor_address_no,cor_premises_building,cor_locality,cor_landmark,cor_state,cor_pincode) VALUES(" +
+          "INSERT INTO user_address_info (ref_user_id,address_no,premises_building,locality,landmark,state,pincode,cor_address_no,cor_premises_building,cor_locality,cor_landmark,cor_state) VALUES(" +
           data.ref_user_id +
           ",'" +
           data.address_no +
@@ -21,13 +21,13 @@ addressInfoController.createAddressInfo = async function (req, res, next) {
           data.locality +
           "','" +
           data.landmark +
-          "'," +
+          "','" +
           data.state +
-          "," +
+          "'," +
           data.pincode +
-          "," +
-          data.cor_address_no +
           ",'" +
+          data.cor_address_no +
+          "','" +
           data.cor_premises_building +
           "','" +
           data.cor_locality +
@@ -35,13 +35,12 @@ addressInfoController.createAddressInfo = async function (req, res, next) {
           data.cor_landmark +
           "','" +
           data.cor_state +
-          "','" +
-          data.cor_pincode +
           "')";
         var AddressInfoInsertResult = await new Promise(function (
           resolve,
           reject
         ) {
+          console.log(sql);
           client.query(sql, function (err, result) {
             if (err) {
               reject(new Error("Failed to insert Address Info: " + err.message));
@@ -56,6 +55,7 @@ addressInfoController.createAddressInfo = async function (req, res, next) {
       message: "Address Info success",
     });
   } catch (error) {
+    console.log(error);
     return res.json({
       status: false,
       message: "Address Info post failed",

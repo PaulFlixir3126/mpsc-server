@@ -13,9 +13,9 @@ personalinfoController.createPersonalInfo = async function (req, res, next) {
       data.ref_user_id +
       ",'" +
       data.holding_aadhar +
-      "'," +
+      "','" +
       data.aadhar_no +
-      ",'" +
+      "','" +
       data.aadhar_name +
       "','" +
       data.salutation +

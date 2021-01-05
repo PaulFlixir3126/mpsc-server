@@ -6,7 +6,7 @@ router
   .route("/register/user/other")
 
   .get(function (req, res) {
-    otherController.getUserOtherInfo(req, res);
+    otherController.getUserOthersInfo(req, res);
   })
 
   .post(function (req, res) {

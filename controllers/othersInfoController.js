@@ -11,7 +11,7 @@ otherInfoController.createOtherInfo = async function (req, res, next) {
     var data = req.body;
       if (data) {
         var sql =
-          "INSERT INTO other_details (ref_user_id,ex_serviceman,ex_serviceman_division,date_of_appointment,date_of_retirement,certificate_no,sports_person,name_of_game,position_medal,tournament_from,tournament_to,level_of_tournament,tournament_certificate_no) VALUES(" +
+          "INSERT INTO other_details (ref_user_id,ex_serviceman,ex_serviceman_division,date_of_appointment,date_of_retirement,certificate_no,sports_person) VALUES(" +
           data.ref_user_id +
           ",'" +
           data.ex_serviceman +
@@ -23,25 +23,14 @@ otherInfoController.createOtherInfo = async function (req, res, next) {
           data.date_of_retirement +
           "'," +
           data.certificate_no +
-          "," +
-          data.sports_person +
-          "," +
-          data.name_of_game +
           ",'" +
-          data.position_medal +
-          "','" +
-          data.tournament_from +
-          "','" +
-          data.tournament_to +
-          "','" +
-          data.level_of_tournament +
-          "','" +
-          data.tournament_certificate_no +
+          data.sports_person +
           "')";
         var othersInfoInsertResult = await new Promise(function (
           resolve,
           reject
         ) {
+          console.log(sql);
           client.query(sql, function (err, result) {
             if (err) {
               reject(new Error("Failed to insert others Info: " + err.message));
@@ -56,6 +45,7 @@ otherInfoController.createOtherInfo = async function (req, res, next) {
       message: "others Info success",
     });
   } catch (error) {
+    console.log(error);
     return res.json({
       status: false,
       message: "others Info post failed",
