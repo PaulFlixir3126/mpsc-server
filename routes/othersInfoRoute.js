@@ -5,9 +5,9 @@ var otherController = require("../controllers/othersInfoController");
 router
   .route("/register/user/other")
 
-//   .get(function (req, res) {
-//     otherController.fetchAllTaskDetails(req, res);
-//   })
+  .get(function (req, res) {
+    otherController.getUserOtherInfo(req, res);
+  })
 
   .post(function (req, res) {
     otherController.createOtherInfo(req, res);

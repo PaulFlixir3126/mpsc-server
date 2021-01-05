@@ -5,9 +5,9 @@ var personalController = require("../controllers/personalinfoController");
 router
   .route("/register/user/personal")
 
-//   .get(function (req, res) {
-//     personalController.fetchAllTaskDetails(req, res);
-//   })
+  .get(function (req, res) {
+    personalController.getUserPersonalInfo(req, res);
+  })
 
   .post(function (req, res) {
     personalController.createPersonalInfo(req, res);

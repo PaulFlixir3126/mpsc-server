@@ -5,9 +5,9 @@ var addressController = require("../controllers/addressInfoController");
 router
   .route("/register/user/address")
 
-//   .get(function (req, res) {
-//     addressController.fetchAllTaskDetails(req, res);
-//   })
+  .get(function (req, res) {
+    addressController.getUserAddressInfo(req, res);
+  })
 
   .post(function (req, res) {
     addressController.createAddressInfo(req, res);

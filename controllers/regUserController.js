@@ -186,57 +186,13 @@ regUserController.verifySMSOtp = async function(req, res,next) {
           data: data,
         });
       }
+    }).catch((error) =>{
+console.log(error);
     });
   } catch (error) {
     return error;
   }
 }
-
-// regUserController.userLogin = async function(req,res){
-//   try {
-//     let userExist = await regUserController.getUser({
-//       email: req.body.email,
-//     });
-//     /**if err return the response */
-//     if (!userExist.status) {
-//       return res.status(500).send({
-//         message: userExist.message,
-//         status: false,
-//         data: userExist.data,
-//       });
-//     }
-//     /**if email not exist */
-//     if (userExist.status && userExist.data.length == 0) {
-//       return res.status(404).send({
-//         message: "Email NotFound",
-//         status: false,
-//         data: userExist.data,
-//       });
-//     }
-
-//     /**if password mismatch */
-
-//     // console.log(userExist);
-//     if (userExist.data[0].password !== sha256(req.body.password)) {
-//       return res.status(403).send({
-//         message: "login Failed due to incorrect email or password",
-//         status: false,
-//       });
-//     }
-
-//     /**if no errors then generate token */
-//     let response = {
-//       userId: userExist.data[0].userId,
-//     };
-//     return res.status(409).send({
-//       message: "Login Success ",
-//       status: false,
-//       data: response
-//     });
-//   } catch (err) {
-//     res.status(500).send({ message: err.message, status: false, data: [] });
-//   }
-// }
 
 regUserController.userLogin = async function(req,res){
 

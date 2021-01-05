@@ -5,9 +5,9 @@ var qualificationController = require("../controllers/qualificationInfoControlle
 router
   .route("/register/user/qualification")
  
-//   .get(function (req, res) {
-//     qualificationController.fetchAllTaskDetails(req, res);
-//   })
+  .get(function (req, res) {
+    qualificationController.getUserQualificationInfo(req, res);
+  })
 
   .post(function (req, res) {
     qualificationController.createQualificationInfo(req, res);

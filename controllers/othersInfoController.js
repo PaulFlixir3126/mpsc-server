@@ -62,6 +62,53 @@ otherInfoController.createOtherInfo = async function (req, res, next) {
     });
   }
 };
+
+otherInfoController.getUserOthersInfo = async function (req, res) {
+  try {
+    var data = req.query;
+    if (data) {
+      var sql =
+        "select * from other_details WHERE ref_user_id='" +
+        data.ref_user_id +
+        "'";
+      console.log(sql);
+      var regUserInsertResult = await new Promise(function (resolve, reject) {
+        client.query(sql, function (err, result) {
+          if (err) {
+            reject(new Error("Failed to fetch reg User Info: " + err.message));
+            return res.json({
+              status: false,
+              message: "User Others Failed",
+              error: err.message,
+            });
+          } else {
+            resolve(result);
+            if (result.length > 0) {
+              return res.json({
+                status: true,
+                message: "User Others Success",
+                data: result,
+              });
+            } else {
+              return res.json({
+                status: false,
+                message: "failed",
+              });
+            }
+          }
+        });
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.json({
+      status: false,
+      message: "Others Failed",
+      error: error,
+    });
+  }
+};
+
 // Schema / Table Creation 
 otherInfoController.tables = () => {
     client.query(

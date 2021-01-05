@@ -4,6 +4,6 @@ module.exports = {
     senderMailID: "paul.pinto@flixirsolutions.com",
     twilioServiceID: "VA2f37c1e39efa975506a688976d45a7c6",
     twilioAccountSID: "AC5236be81594753ae485533c3e5679acb",
-    twilioAuthToken: "fdf0048a6d8063e86a0a96167fa3a8cc"
+    twilioAuthToken: "4c422fe6b43b6f16722aa319b6431cd9"
   };
   

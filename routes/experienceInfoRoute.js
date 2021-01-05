@@ -5,9 +5,9 @@ var experienceController = require("../controllers/experienceInfoController");
 router
   .route("/register/user/experience")
 
-//   .get(function (req, res) {
-//     experienceController.fetchAllTaskDetails(req, res);
-//   })
+  .get(function (req, res) {
+    experienceController.getUserExperienceInfo(req, res);
+  })
 
   .post(function (req, res) {
     experienceController.createExperienceInfo(req, res);
