@@ -8,16 +8,14 @@ const client = require("../config/database.config").getClient();
 personalinfoController.createPersonalInfo = async function (req, res, next) {
   try {
     var data = req.body;
-    data["ref_user_id"] = 0;
     var sql =
-      // "INSERT INTO `user_personal_info`(`ref_user_id`, `holding_aadhar`, `aadhar_no`, `aadhar_name`, `salutation`, `full_name`, `mother_name`, `dob`, `gender`, `email_id`, `mobile_no`, `nationality`, `marital_status`, `height`, `weight`, `caste_category`, `certificate_no`, `issue_date`) VALUES (0,'"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+"','"+data.holding_aadhar+")"
-      "INSERT INTO user_personal_info (ref_user_id,holding_aadhar,aadhar_no,aadhar_name,salutation,full_name,mother_name,dob,gender,email_id,mobile_no,nationality,marital_status,height,weight,caste_category,certificate_no,issue_date) VALUES(" +
+     "INSERT INTO user_personal_info (ref_user_id,holding_aadhar,aadhar_no,aadhar_name,salutation,full_name,mother_name,dob,gender,email_id,mobile_no,nationality,marital_status,height,weight,caste_category,certificate_no,issue_date) VALUES(" +
       data.ref_user_id +
       ",'" +
       data.holding_aadhar +
-      "','" +
+      "'," +
       data.aadhar_no +
-      "','" +
+      ",'" +
       data.aadhar_name +
       "','" +
       data.salutation +
@@ -101,7 +99,7 @@ personalinfoController.getUserPersonalInfo = async function (req, res) {
               error: err.message,
             });
           } else {
-            resolve(result);
+           
             if (result.length > 0) {
               return res.json({
                 status: true,

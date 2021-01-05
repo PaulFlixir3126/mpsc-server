@@ -21,15 +21,15 @@ exprienceInfoController.createExperienceInfo = async function (req, res, next) {
         data.organisation +
         "','" +
         data.board_university +
-        "'," +
+        "','" +
         data.office_inst_own_govt +
-        "," +
+        "'," +
         data.pay_scale +
         "," +
         data.basic_pay +
-        ",'" +
+        "," +
         data.gross_salary +
-        "')";
+        ")";
       var exprienceInfoInsertResult = await new Promise(function (
         resolve,
         reject
@@ -50,6 +50,7 @@ exprienceInfoController.createExperienceInfo = async function (req, res, next) {
       message: "exprience Info success",
     });
   } catch (error) {
+    console.log(error);
     return res.json({
       status: false,
       message: "exprience Info post failed",
@@ -124,8 +125,8 @@ exprienceInfoController.updateExperienceInfo = async function (req, res, next) {
         data.basic_pay +
         "',gross_salary='" +
         data.gross_salary +
-        "'WHERE slnum  = " +
-        data.slnum +
+        "'WHERE exprience_id  = " +
+        data.exprience_id +
         "";
       var exprienceInfoInsertResult = await new Promise(function (
         resolve,
@@ -152,7 +153,7 @@ exprienceInfoController.updateExperienceInfo = async function (req, res, next) {
       message: "exprience Info post failed",
     });
   }
-};
+}; 
 
 // Schema / Table Creation
 exprienceInfoController.tables = () => {
