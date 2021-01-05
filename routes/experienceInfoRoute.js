@@ -13,9 +13,9 @@ router
     experienceController.createExperienceInfo(req, res);
   })
 
-//   .put(function (req, res) {
-//     experienceController.updateDetails(req, res);
-//   })
+  .put(function (req, res) {
+    experienceController.updateExperienceInfo(req, res);
+  })
 
 //   .delete(function (req, res) {
 //     experienceController.deleteDetails(req, res);
