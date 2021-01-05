@@ -51,7 +51,6 @@ personalinfoController.createPersonalInfo = async function (req, res, next) {
       resolve,
       reject
     ) {
-      console.log("inm");
       client.query(sql, function (err, result) {
         if (err) {
           reject(new Error("Failed to insert personalInfo: " + err.message));
@@ -70,12 +69,12 @@ personalinfoController.createPersonalInfo = async function (req, res, next) {
     // }
     return res.json({
       status: true,
-      message: "personalInfo success",
+      message: "Stored User Personal Details",
     });
   } catch (error) {
     return res.json({
       status: false,
-      message: "personalInfo post failed",
+      message: "Failed To Store User Personal Details",
     });
   }
 };
@@ -95,7 +94,7 @@ personalinfoController.getUserPersonalInfo = async function (req, res) {
             reject(new Error("Failed to fetch reg User Info: " + err.message));
             return res.json({
               status: false,
-              message: "User Personal Failed",
+              message: "Failed To Fetch User Personal Details",
               error: err.message,
             });
           } else {
@@ -103,13 +102,13 @@ personalinfoController.getUserPersonalInfo = async function (req, res) {
             if (result.length > 0) {
               return res.json({
                 status: true,
-                message: "User Personal Success",
+                message: "Fetched User Personal Details",
                 data: result,
               });
             } else {
               return res.json({
                 status: false,
-                message: "failed",
+                message: "Failed To Fetch User Personal Details",
               });
             }
           }
@@ -120,7 +119,7 @@ personalinfoController.getUserPersonalInfo = async function (req, res) {
     console.log(error);
     return res.json({
       status: false,
-      message: "Personal Failed",
+      message: "Failed To Fetch User Personal Details",
       error: error,
     });
   }

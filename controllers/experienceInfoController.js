@@ -150,7 +150,7 @@ exprienceInfoController.updateExperienceInfo = async function (req, res, next) {
   } catch (error) {
     return res.json({
       status: false,
-      message: "exprience Info post failed",
+      message: "Failed To Fetch User Experience Details",
     });
   }
 }; 
