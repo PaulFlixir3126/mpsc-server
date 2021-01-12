@@ -2,11 +2,11 @@ var mysql = require("mysql");
 var pool;
 var client;
 const config = {
-    host: "sql12.freemysqlhosting.net",
+    host: "www.flixirsolutions.com",
     port: "3306",
-    user: "sql12384947",
+    user: "flixirso_mpse1",
     password: "Twcb3x3MMa",
-    database: "sql12384947",
+    database: "flixirso_mpse_govt",
   insecureAuth: true,
 };
 
@@ -25,11 +25,11 @@ module.exports = {
       client.connect(function (err) {
         if (err) {
           return console.error("error: " + err.message);
-        }
+        } 
 
         console.log("Connected to the MySQL server.");
       });
     }
-    return client;
+    return client; 
   },
 };
