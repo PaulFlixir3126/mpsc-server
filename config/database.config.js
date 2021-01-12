@@ -15,7 +15,7 @@ module.exports = {
     if (!pool) {
       pool = new mysql.Pool(config);
       pool = mysql.createPool(config);
-      console.log("MySQL database connection established!");
+      console.log("MySQL database connection established! f");
     }
     return pool;
   },
